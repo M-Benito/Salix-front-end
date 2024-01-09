@@ -2,7 +2,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
 
-export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, positiveBtn, negativeBtn }) {
+export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn }) {
 
     return (
         <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0 }]}>
@@ -10,6 +10,7 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
                 <View style={styles.inLine}>
                     <MaterialCommunityIcons name={iconName} size={14} style={{ color: color.DARK_GREEN }} />
                     <Text style={styles.title}>{titleText}</Text>
+                    {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay}/> : null}
                 </View>
                 {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={14} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
             </View>
@@ -20,6 +21,24 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
             </View>
         </View>
     )
+}
+
+function PillStatus({ isGoodDay }) {
+    if(isGoodDay) {
+        return (
+            <View style={[styles.pillContainer, {borderColor: color.LIGHT_GREEN}]}>
+                <View style={[styles.pillDot,  {backgroundColor: color.LIGHT_GREEN}]} />
+                <Text>Bueno</Text>
+            </View>
+        )
+    } else {
+        return (
+            <View style={[styles.pillContainer, {borderColor: color.RED}]}>
+                <View style={[styles.pillDot,  {backgroundColor: color.RED}]} />
+                <Text>Perjudicial</Text>
+            </View>
+        )
+    }
 }
 
 const styles = StyleSheet.create({
@@ -51,9 +70,32 @@ const styles = StyleSheet.create({
 
     body: {
         color: color.DARK_GREEN,
-        marginTop: 16,
+        marginTop: 12,
         fontSize: 14,
         fontFamily: 'Oxygen-Regular',
+    },
+
+    pillContainer: {
+        borderColor: color.LIGHT_GREEN,
+        borderRadius: 50,
+        borderWidth: 1.5,
+        paddingStart: 5,
+        paddingTop: 1,
+        paddingEnd: 10,
+        paddingBottom: 1,
+        marginLeft: 5,
+        fontSize: 8,
+        fontFamily: 'Oxygen-Bold',
+        flexDirection: 'row',
+        alignItems: 'center',
+    },
+
+    pillDot: {
+        borderRadius: 50,
+        backgroundColor: color.LIGHT_GREEN,
+        width: 9,
+        height: 9,
+        marginEnd: 5
     },
 
     negativeBtn: {

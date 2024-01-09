@@ -15,7 +15,7 @@ export default function Home() {
                 <ProfileHeader userLevel={2} completedPercentage={75} points={120} />
                 <SugestionCard iconName={"information"} titleText={"Dato curioso del día"} bodyText={"El modo standby representa un 10,7% del consumo energético total de la vivienda. Si apagáramos completamente cada electrodoméstico, ahorraríamos unos 50 euros al año."} />
                 <TouchableOpacity onPress={() => navigation.navigate("Outdoors")}>
-                    <OutdoorsPreview temperatue={"20"} aqiState={2} aqi={"84"} />
+                    <OutdoorsPreview forecastImage={"cloud"} temperatue={"20"} aqiState={2} aqi={"84"} />
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Indoors")}>
                     <IndoorsPreview hasVentilated={false} hasTempSensor={false} />

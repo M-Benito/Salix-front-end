@@ -13,7 +13,7 @@ export default function OutdoorsPreview({ forecastImage, temperatue, aqiState, a
     return (
         <View style={[styles.container, { backgroundColor: bgColor }]}>
             <View style={styles.inLine}>
-                <MaterialCommunityIcons name={"cloud"} size={26} style={{ color: color.DARK_GREEN, marginRight: 15 }} />
+                <MaterialCommunityIcons name={forecastImage} size={26} style={{ color: color.DARK_GREEN, marginRight: 15 }} />
                 <Text style={styles.titleBold}>{temperatue}º</Text>
             </View>
             <Text style={styles.subtitle}>Temperatura actual</Text>
