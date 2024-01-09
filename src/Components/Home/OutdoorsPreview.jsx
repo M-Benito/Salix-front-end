@@ -1,7 +1,6 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
-import { useState } from 'react';
 
 export default function OutdoorsPreview({ forecastImage, temperatue, aqiState, aqi }) {
 

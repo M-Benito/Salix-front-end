@@ -7,7 +7,7 @@ export default function IndoorsPreview({ hasVentilated, hasTempSensor }) {
         <View style={styles.container}>
             <Text style={[styles.subtitle, { marginBottom: 20 }]}>Tu hogar</Text>
             {hasTempSensor ? <Text style={styles.title}>20º</Text> : null}
-            {hasTempSensor ? <Text style={[styles.subtitle, {marginBottom: 20}]}>Temperatura interior</Text> : null}
+            {hasTempSensor ? <Text style={[styles.subtitle, { marginBottom: 20 }]}>Temperatura interior</Text> : null}
             <ImageBackground resizeMode="contain" style={styles.image} source={hasVentilated ? require("../../../assets/house-green.png") : require("../../../assets/house-yellow.png")}>
                 <View style={styles.houseContainer} >
                     <Text style={styles.houseTitle}>{hasVentilated ? "Bueno" : "Regular"}</Text>
