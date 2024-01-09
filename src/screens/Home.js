@@ -18,7 +18,7 @@ export default function Home() {
                     <OutdoorsPreview temperatue={"20"} aqiState={2} aqi={"84"}/>
                 </TouchableOpacity>
                 <TouchableOpacity onPress={() => navigation.navigate("Indoors")}>
-                    <IndoorsPreview hasVentilated={false}/>
+                    <IndoorsPreview hasVentilated={false} hasTempSensor={false}/>
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.lightPriceContainer} onPress={() => navigation.navigate("Indoors")}>
                     <Text style={styles.title}>120€/Mwh</Text>

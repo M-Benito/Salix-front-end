@@ -1,13 +1,13 @@
 import { StyleSheet, Text, View, ImageBackground } from 'react-native';
 import * as color from '../../../constants/colors'
 
-export default function IndoorsPreview({ hasVentilated }) {
+export default function IndoorsPreview({ hasVentilated, hasTempSensor }) {
 
     return (
         <View style={styles.container}>
             <Text style={[styles.subtitle, { marginBottom: 20 }]}>Tu hogar</Text>
-            <Text style={styles.title}>20º</Text>
-            <Text style={styles.subtitle}>Temperatura interior</Text>
+            {hasTempSensor ? <Text style={styles.title}>20º</Text> : null}
+            {hasTempSensor ? <Text style={[styles.subtitle, {marginBottom: 20}]}>Temperatura interior</Text> : null}
             <ImageBackground resizeMode="contain" style={styles.image} source={hasVentilated ? require("../../../assets/house-green.png") : require("../../../assets/house-yellow.png")}>
                 <View style={styles.houseContainer} >
                     <Text style={styles.houseTitle}>{hasVentilated ? "Bueno" : "Regular"}</Text>
@@ -74,7 +74,7 @@ const styles = StyleSheet.create({
     image: {
         flex: 1,
         justifyContent: 'center',
-        marginTop: 20
+        marginTop: 10
     },
     houseContainer: {
         alignItems: 'center',
@@ -82,7 +82,6 @@ const styles = StyleSheet.create({
         borderRadius: 21,
         width: '100%',
         marginTop: 25,
-
         padding: 30
     },
     houseTitle: {
