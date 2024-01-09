@@ -1,24 +1,55 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
+import { useState } from 'react';
 
-export default function OutdoorsPreview() {
+export default function OutdoorsPreview({ forecastImage, temperatue, aqiState, aqi }) {
+
+    let bgColor = color.LIGHT_GREEN;
+    let aqText = "Buena";
+
+    bgColor = StablishAquState(aqiState)[0];
+    aqText = StablishAquState(aqiState)[1];
 
     return (
-        <View style={styles.container}>
+        <View style={[styles.container, { backgroundColor: bgColor }]}>
             <View style={styles.inLine}>
                 <MaterialCommunityIcons name={"cloud"} size={26} style={{ color: color.DARK_GREEN, marginRight: 15 }} />
-                <Text style={styles.title}>20º</Text>
+                <Text style={styles.titleBold}>{temperatue}º</Text>
             </View>
             <Text style={styles.subtitle}>Temperatura actual</Text>
             <View style={styles.aqStatusContainer}>
-                <View style={styles.aqiStatusCircle}/>
-                <Text style={styles.aqStatusText}>Buena</Text>
+                <View style={styles.aqiStatusCircle} />
+                <Text style={styles.aqStatusText}>{aqText}</Text>
             </View>
-            <Text style={styles.title}><Text style={styles.titleBold}>84</Text>/100</Text>
+            <Text style={styles.title}><Text style={styles.titleBold}>{aqi}</Text>/100</Text>
             <Text style={styles.subtitle}>Calidad del aire</Text>
         </View>
     )
+}
+
+function StablishAquState(aqiState) {
+    let bgColor = color.LIGHT_GREEN;
+    let aqText = "Buena";
+
+    if (aqiState == 1) {
+        bgColor = color.LIGHT_GREEN;
+        aqText = "Excelente";
+    }
+    if (aqiState == 2) {
+        bgColor = color.LIGHT_GREEN;
+        aqText = "Buena";
+    }
+    if (aqiState == 3) {
+        bgColor = color.YELLOW;
+        aqText = "Moderado";
+    }
+    if (aqiState == 4) {
+        bgColor = color.RED;
+        aqText = "Perjudicial";
+    }
+
+    return [bgColor, aqText];
 }
 
 const styles = StyleSheet.create({
@@ -29,7 +60,7 @@ const styles = StyleSheet.create({
         borderRadius: 21,
         width: '100%',
         marginTop: 22,
-        padding:20
+        padding: 20
     },
     inLine: {
         flexDirection: 'row',
@@ -44,8 +75,8 @@ const styles = StyleSheet.create({
         color: color.DARK_GREEN,
         marginTop: 3
     },
-    aqStatusContainer:{
-        borderRadius:50,
+    aqStatusContainer: {
+        borderRadius: 50,
         borderWidth: 2,
         borderColor: color.DARK_GREEN,
         flexDirection: 'row',
@@ -58,17 +89,19 @@ const styles = StyleSheet.create({
         marginBottom: 10
     },
     aqiStatusCircle: {
-        backgroundColor:  color.DARK_GREEN,
+        backgroundColor: color.DARK_GREEN,
         width: 11,
         height: 11,
         borderRadius: 50,
         marginEnd: 5
     },
-    aqStatusText:{
+    aqStatusText: {
         color: color.DARK_GREEN,
         fontSize: 10,
     },
     titleBold: {
         fontFamily: 'Oxygen-Bold',
+        fontSize: 48,
+        color: color.DARK_GREEN,
     },
 });
