@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
 
-export default function OutdoorsPreview() {
+export default function IndoorsPreview() {
 
     return (
         <View style={styles.container}>
