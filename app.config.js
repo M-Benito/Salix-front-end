@@ -10,7 +10,7 @@ export default {
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#9AEBA3"
     },
     "assetBundlePatterns": [
       "**/*"
@@ -27,7 +27,7 @@ export default {
     "web": {
       "favicon": "./assets/favicon.png"
     },
-    "plugins": [
+    /*"plugins": [
       [
         "expo-font",
         {
@@ -38,7 +38,7 @@ export default {
           ]
         }
       ]
-    ],
+    ],*/
     extra: {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
