@@ -7,10 +7,10 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
         <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0}]}>
             <View style={styles.headerContainer}>
                 <View style={styles.inLine}>
-                    <MaterialCommunityIcons name={iconName} size={14} color="black" />
+                    <MaterialCommunityIcons name={iconName} size={14} style={{color: '#0B1D12'}} />
                     <Text style={styles.title}>{titleText}</Text>
                 </View>
-                {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={14} color='black' /></TouchableOpacity> : null}
+                {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={14} style={{color: '#0B1D12'}} /></TouchableOpacity> : null}
             </View>
             <Text style={styles.body}>{bodyText}</Text>
             <View style={styles.headerContainer}>
