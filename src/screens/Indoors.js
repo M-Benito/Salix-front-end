@@ -4,6 +4,7 @@ import CardHeader from '../Components/Common/CardHeader';
 import IndoorsPreview from '../Components/Home/IndoorsPreview';
 import * as color from '../../constants/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { VictoryChart, VictoryBar, VictoryAxis } from 'victory-native';
 
 export default function Indoors() {
     return (
@@ -37,29 +38,62 @@ export default function Indoors() {
                 </View>
 
 
-                <View style={[styles.cardsContainer, {marginBottom: 22}]}>
+                <View style={[styles.cardsContainer, { marginBottom: 22 }]}>
                     <CardHeader iconName={"lightbulb"} title={"Precio de la luz por horas"} info={false} />
                     <View style={{ alignItems: 'center' }}>
                         <Text style={styles.titleBold}>120€/Mwh</Text>
                         <Text style={styles.subtitle}>Precio actual de la luz</Text>
                     </View>
+                    <LightChart />
                 </View>
-
-
 
             </View>
         </ScrollView>
     )
 }
 
-function HeaderCard({ iconName, title, info }) {
+function LightChart() {
+
+    const auxiliar = []
+
+    for (var i = 0; i <= 24; i++) {
+        let price = Math.round(Math.random() * (300 - 110) + 110, 2);
+        auxiliar[i] = { Horas: i, Precio: price, fill: price <= 180 ? color.LIGHT_GREEN : color.RED };
+    }
+
+    /*const data = [
+        { Horas: 0, Precio: 123, fill: color.LIGHT_GREEN },
+        { Horas: 1, Precio: 120, fill: color.LIGHT_GREEN },
+        { Horas: 2, Precio: 145, fill: color.LIGHT_GREEN },
+        { Horas: 3, Precio: 234, fill: color.RED },
+        { Horas: 4, Precio: 233, fill: color.RED },
+        { Horas: 5, Precio: 256, fill: color.RED },
+        { Horas: 6, Precio: 257, fill: color.RED },
+        { Horas: 7, Precio: 260, fill: color.RED },
+        { Horas: 8, Precio: 234, fill: color.RED },
+        { Horas: 9, Precio: 123, fill: color.LIGHT_GREEN },
+        { Horas: 10, Precio: 120, fill: color.LIGHT_GREEN },
+        { Horas: 11, Precio: 111, fill: color.LIGHT_GREEN },
+        { Horas: 12, Precio: 100, fill: color.LIGHT_GREEN },
+        { Horas: 13, Precio: 123, fill: color.LIGHT_GREEN },
+        { Horas: 14, Precio: 129, fill: color.LIGHT_GREEN },
+        { Horas: 15, Precio: 234, fill: color.RED },
+        { Horas: 16, Precio: 256, fill: color.RED },
+        { Horas: 17, Precio: 289, fill: color.RED },
+        { Horas: 18, Precio: 260, fill: color.RED },
+        { Horas: 19, Precio: 256, fill: color.RED },
+        { Horas: 20, Precio: 220, fill: color.RED },
+        { Horas: 21, Precio: 200, fill: color.RED },
+        { Horas: 22, Precio: 180, fill: color.RED },
+        { Horas: 23, Precio: 140, fill: color.LIGHT_GREEN }
+    ];*/
+
     return (
-        <View style={styles.headerContainer}>
-            <View style={styles.inLine}>
-                <MaterialCommunityIcons name={iconName} size={14} style={{ color: color.DARK_GREEN }} />
-                <Text style={styles.title}>{title}</Text>
-            </View>
-            {info ? <TouchableOpacity><MaterialCommunityIcons name={"information"} size={14} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
+        <View style={styles.aux}>
+            <VictoryChart domainPadding={1}>
+                <VictoryAxis tickValues={[0, 4, 8, 12, 16, 20, 23]} tickFormat={["0", "4", "8", "12", "16", "20", "24"]} />
+                <VictoryBar data={auxiliar} x="Horas" y="Precio" style={{ data: { fill: ({ datum }) => datum.fill, }, labels: { fontSize: 6, color: color.Dar } }} labels={({ datum }) => `${datum.Precio}`} />
+            </VictoryChart>
         </View>
     )
 }
@@ -117,5 +151,12 @@ const styles = StyleSheet.create({
         paddingBottom: 20,
         width: '100%',
         marginTop: 30,
+    },
+
+
+    aux: {
+        flex: 1,
+        justifyContent: "center",
+        alignItems: "center",
     }
 });
