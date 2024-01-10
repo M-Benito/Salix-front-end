@@ -130,8 +130,8 @@ function MasterRoommate({ userName }) {
                     </TouchableOpacity>
                 </View>
             </View>
-            <Text>{userName}</Text>
-            <Text>Dueño de la casa</Text>
+            <Text style={styles.titleRoommate}>{userName}</Text>
+            <Text style={styles.subtitleRoommate}>Dueño de la casa</Text>
         </View>
     )
 }
@@ -147,8 +147,8 @@ function NormalRoommate({ userName }) {
                     </View>
                 </TouchableOpacity>
             </View>
-            <Text>{userName}</Text>
-            <Text>Vive en la casa</Text>
+            <Text style={styles.titleRoommate}>{userName}</Text>
+            <Text style={styles.subtitleRoommate}>Vive en la casa</Text>
         </View>
     )
 }
@@ -161,8 +161,8 @@ function AddNewRoommate() {
                     <MaterialCommunityIcons name={"account-plus"} size={30} style={{ color: color.DARK_GREEN }} />
                 </View>
             </TouchableOpacity>
-            <Text>Añadir nuevo</Text>
-            <Text>compi la casa</Text>
+            <Text style={styles.titleRoommate}>Añadir nuevo</Text>
+            <Text style={styles.subtitleRoommate}>compi a la casa</Text>
         </View>
     )
 }
@@ -292,5 +292,15 @@ const styles = StyleSheet.create({
         justifyContent: 'space-between',
         alignItems: 'center',
         marginTop: 10
+    },
+    titleRoommate: {
+        fontFamily: 'Oxygen-Bold',
+        fontSize: 12,
+        color: color.GRAY,
+    },
+    subtitleRoommate: {
+        fontFamily: 'Oxygen-Regular',
+        fontSize: 12,
+        color: color.DARK_GREEN,
     },
 });
