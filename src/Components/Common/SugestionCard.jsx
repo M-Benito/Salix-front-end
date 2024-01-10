@@ -8,11 +8,11 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
         <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0 }]}>
             <View style={styles.headerContainer}>
                 <View style={styles.inLine}>
-                    <MaterialCommunityIcons name={iconName} size={14} style={{ color: color.DARK_GREEN }} />
+                    <MaterialCommunityIcons name={iconName} size={17} style={{ color: color.DARK_GREEN }} />
                     <Text style={styles.title}>{titleText}</Text>
                     {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay}/> : null}
                 </View>
-                {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={14} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
+                {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
             </View>
             <Text style={styles.body}>{bodyText}</Text>
             <View style={styles.headerContainer}>

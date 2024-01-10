@@ -89,7 +89,7 @@ function LightChart() {
     ];*/
 
     return (
-        <View style={styles.aux}>
+        <View style={styles.chart}>
             <VictoryChart domainPadding={1}>
                 <VictoryAxis tickValues={[0, 4, 8, 12, 16, 20, 23]} tickFormat={["0", "4", "8", "12", "16", "20", "24"]} />
                 <VictoryBar data={auxiliar} x="Horas" y="Precio" style={{ data: { fill: ({ datum }) => datum.fill, }, labels: { fontSize: 6, color: color.Dar } }} labels={({ datum }) => `${datum.Precio}`} />
@@ -130,7 +130,6 @@ const styles = StyleSheet.create({
         marginTop: 3,
         textAlign: 'center'
     },
-
     smallSubtitle: {
         color: color.DARK_GREEN,
         marginTop: 3,
@@ -152,9 +151,7 @@ const styles = StyleSheet.create({
         width: '100%',
         marginTop: 30,
     },
-
-
-    aux: {
+    chart: {
         flex: 1,
         justifyContent: "center",
         alignItems: "center",

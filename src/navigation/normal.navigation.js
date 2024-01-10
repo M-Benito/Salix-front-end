@@ -29,9 +29,9 @@ function HomeStack() {
     return (
         <HomeStackNavigator.Navigator initialRouteName="HomeScreen">
             <HomeStackNavigator.Screen name="HomeScreen" component={HomeTabs} options={{ headerShown: false }} />
-            <HomeStackNavigator.Screen name="Outdoors" component={Outdoors} options={{ headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }} />
-            <HomeStackNavigator.Screen name="Indoors" component={Indoors} options={{ headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }}/>
-            <HomeStackNavigator.Screen name="Settings" component={Settings} options={{ headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }}/>
+            <HomeStackNavigator.Screen name="Outdoors" component={Outdoors} options={{ title: 'Outdoors', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }} />
+            <HomeStackNavigator.Screen name="Indoors" component={Indoors} options={{ title: 'Indoors', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }}/>
+            <HomeStackNavigator.Screen name="Settings" component={Settings} options={{ title: 'Perfil y ajustes', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }}/>
         </HomeStackNavigator.Navigator>
     )
 }
