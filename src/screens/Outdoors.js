@@ -28,7 +28,7 @@ export default function Outdoors() {
                     </View>
                 </View>
 
-                <View style={styles.cardsContainer}>
+                <View style={[styles.cardsContainer, {borderTopLeftRadius: 21, borderTopRightRadius: 21, borderBottomLeftRadius: 0, borderBottomRightRadius: 0}]}>
                     <View style={styles.headerContainer}>
                         <View style={styles.inLine}>
                             <MaterialCommunityIcons name="weather-windy" size={14} style={{ color: color.DARK_GREEN }} />
@@ -43,16 +43,15 @@ export default function Outdoors() {
                     <AqAirPharams title={"Monóxido de Carbono"} subtitle={"CO"} max={100} min={5} actual={856.6} units={"ppb"} />
                     <AqAirPharams title={"Dióxido de nitrógeno"} subtitle={"NO2"} max={100} min={12} actual={18.44} units={"ppb"} />
                 </View>
-
                 <View style={styles.aqiRessumeContainer}>
                     <View style={[styles.inLine, { justifyContent: 'space-between', marginBottom: 14 }]}>
                         <Text style={styles.aqiRessumeTitle}>84 - Excelente</Text>
                         <Text style={styles.aqiRessumeText}>Índice de calidad del aire</Text>
                     </View>
-                    <HorizontalLinerarGradient firstColor={color.RED} seconColor={color.LIGHT_GREEN} min={0} max={100} actual={20} />
-                    <View style={[styles.inLine, { justifyContent: 'space-between', marginTop: 10 }]}>
-                        <Text style={styles.aqiRessumeText}>0</Text>
-                        <Text style={styles.aqiRessumeText}>100</Text>
+                    <HorizontalLinerarGradient firstColor={color.RED} seconColor={color.LIGHT_GREEN} min={3} max={100} actual={20} />
+                    <View style={[styles.inLine, { justifyContent: 'space-between', marginTop: 5 }]}>
+                        <Text style={[styles.aqiRessumeText, {marginStart: 5}]}>0</Text>
+                        <Text style={[styles.aqiRessumeText, {marginEnd: 5}]}>100</Text>
                     </View>
                 </View >
 
@@ -158,7 +157,10 @@ const styles = StyleSheet.create({
     },
     aqiRessumeContainer: {
         backgroundColor: color.DARK_GREEN,
-        borderRadius: 21,
+        borderTopLeftRadius: 0, 
+        borderTopRightRadius: 0, 
+        borderBottomLeftRadius: 21, 
+        borderBottomRightRadius: 21,
         padding: 20,
     },
     aqiRessumeTitle: {
