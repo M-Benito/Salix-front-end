@@ -1,8 +1,8 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
 
-export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn }) {
+export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction }) {
 
     return (
         <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0 }]}>
@@ -16,8 +16,8 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
             </View>
             <Text style={styles.body}>{bodyText}</Text>
             <View style={styles.headerContainer}>
-                {positiveBtn ? <TouchableOpacity style={styles.negativeBtn}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
-                {positiveBtn ? <TouchableOpacity style={styles.positiveBtn}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
+                {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={() => Alert.alert(negativeAction)}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
+                {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={() => Alert.alert(positiveAction)}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
             </View>
         </View>
     )

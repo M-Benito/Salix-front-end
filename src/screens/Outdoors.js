@@ -1,5 +1,6 @@
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity } from 'react-native';
 import SugestionCard from '../Components/Common/SugestionCard';
+import CardHeader from '../Components/Common/CardHeader';
 import * as color from '../../constants/colors'
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { LinearGradient } from 'expo-linear-gradient';
@@ -28,14 +29,8 @@ export default function Outdoors() {
                     </View>
                 </View>
 
-                <View style={[styles.cardsContainer, {borderTopLeftRadius: 21, borderTopRightRadius: 21, borderBottomLeftRadius: 0, borderBottomRightRadius: 0}]}>
-                    <View style={styles.headerContainer}>
-                        <View style={styles.inLine}>
-                            <MaterialCommunityIcons name="weather-windy" size={14} style={{ color: color.DARK_GREEN }} />
-                            <Text style={styles.title}>Calidad del aire exterior</Text>
-                        </View>
-                        <TouchableOpacity><MaterialCommunityIcons name={"information"} size={14} style={{ color: color.DARK_GREEN }} /></TouchableOpacity>
-                    </View>
+                <View style={[styles.cardsContainer, { borderTopLeftRadius: 21, borderTopRightRadius: 21, borderBottomLeftRadius: 0, borderBottomRightRadius: 0 }]}>
+                    <CardHeader iconName={"weather-windy"} title={"Calidad del aire exterior"} info={true} />
                     <AqAirPharams title={"Partículas en suspensión"} subtitle={"PM10"} max={100} min={10} actual={17.37} units={"ug/m3"} />
                     <AqAirPharams title={"Partículas en suspensión"} subtitle={"PM2,5"} max={100} min={6} actual={4.19} units={"ug/m3"} />
                     <AqAirPharams title={"Ozono"} subtitle={"O3"} max={100} min={3} actual={18.68} units={"ppb"} />
@@ -50,19 +45,13 @@ export default function Outdoors() {
                     </View>
                     <HorizontalLinerarGradient firstColor={color.RED} seconColor={color.LIGHT_GREEN} min={3} max={100} actual={20} />
                     <View style={[styles.inLine, { justifyContent: 'space-between', marginTop: 5 }]}>
-                        <Text style={[styles.aqiRessumeText, {marginStart: 5}]}>0</Text>
-                        <Text style={[styles.aqiRessumeText, {marginEnd: 5}]}>100</Text>
+                        <Text style={[styles.aqiRessumeText, { marginStart: 5 }]}>0</Text>
+                        <Text style={[styles.aqiRessumeText, { marginEnd: 5 }]}>100</Text>
                     </View>
                 </View >
 
                 <View style={[styles.cardsContainer, { marginBottom: 24 }]}>
-                    <View style={styles.headerContainer}>
-                        <View style={styles.inLine}>
-                            <MaterialCommunityIcons name="leaf-maple" size={14} style={{ color: color.DARK_GREEN }} />
-                            <Text style={styles.title}>Nivel de polen</Text>
-                        </View>
-                        <TouchableOpacity><MaterialCommunityIcons name={"information"} size={14} style={{ color: color.DARK_GREEN }} /></TouchableOpacity>
-                    </View>
+                    <CardHeader iconName={"leaf-maple"} title={"Nivel de polen"} info={true} />
                     <AqPollenPharams title={"Aliso"} max={100} min={10} actual={17.37} units={"granos/m3"} />
                     <AqPollenPharams title={"Abedul"} max={100} min={3} actual={4.19} units={"granos/m3"} />
                     <AqPollenPharams title={"Césped"} max={100} min={7} actual={18.68} units={"granos/m3"} />
@@ -157,9 +146,9 @@ const styles = StyleSheet.create({
     },
     aqiRessumeContainer: {
         backgroundColor: color.DARK_GREEN,
-        borderTopLeftRadius: 0, 
-        borderTopRightRadius: 0, 
-        borderBottomLeftRadius: 21, 
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+        borderBottomLeftRadius: 21,
         borderBottomRightRadius: 21,
         padding: 20,
     },
@@ -191,18 +180,6 @@ const styles = StyleSheet.create({
     detailSubtitle: {
         fontSize: 12,
         color: color.DARK_GREEN,
-    },
-    headerContainer: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: 12,
-    },
-    title: {
-        marginStart: 5,
-        color: color.DARK_GREEN,
-        fontSize: 14,
-        fontFamily: 'Oxygen-Bold',
     },
     aqTitle: {
         color: color.DARK_GREEN,
