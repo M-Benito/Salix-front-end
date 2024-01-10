@@ -66,44 +66,9 @@ export default function Settings() {
                 <View style={styles.settingsGroupContainer}>
                     <CardHeader iconName={"home-account"} title={"Usuarios de la casa"} info={false} edit={false} />
                     <View style={styles.inLine}>
-                        <View style={styles.profileImageContainer}>
-                            <View style={styles.profileMasterContainer}>
-                                <Image style={styles.profileMasterImage} source={require('../../assets/Nacho.jpg')} />
-                                <View style={{ position: 'absolute', height: '100%', justifyContent: 'space-between' }}>
-                                    <View style={styles.medalMasterContainer}>
-                                        <MaterialCommunityIcons name={"medal"} size={16} style={{ color: color.DARK_GREEN }} />
-                                    </View>
-                                    <TouchableOpacity>
-                                        <View style={styles.laveHouseContainer}>
-                                            <MaterialCommunityIcons name={"exit-to-app"} size={16} style={{ color: color.DARK_GREEN }} />
-                                        </View>
-                                    </TouchableOpacity>
-                                </View>
-                            </View>
-                            <Text>Nacho</Text>
-                            <Text>Dueño de la casa</Text>
-                        </View>
-                        <View style={styles.profileImageContainer}>
-                            <View style={{position: 'relative', flexDirection: 'colum',  justifyContent: 'flex-end', alignItems: 'flex-end'}}>
-                                <Image style={styles.profileRoommateImage} source={require('../../assets/Lydia.jpg')} />
-                                <TouchableOpacity style={{ position: 'absolute', justifyContent: 'flex-end' }}>
-                                    <View style={styles.laveHouseContainer}>
-                                        <MaterialCommunityIcons name={"exit-to-app"} size={16} style={{ color: color.DARK_GREEN }} />
-                                    </View>
-                                </TouchableOpacity>
-                            </View>
-                            <Text>Lydia</Text>
-                            <Text>Vive en la casa</Text>
-                        </View>
-                        <View style={styles.profileImageContainer}>
-                            <TouchableOpacity>
-                                <View style={styles.newRoommateImage}>
-                                    <MaterialCommunityIcons name={"account-plus"} size={30} style={{ color: color.DARK_GREEN }} />
-                                </View>
-                            </TouchableOpacity>
-                            <Text>Añadir nuevo</Text>
-                            <Text>compi la casa</Text>
-                        </View>
+                        <MasterRoommate userName={'Nacho'}/>
+                        <NormalRoommate userName={'Lydia'}/>
+                        <AddNewRoommate />
                     </View>
                 </View>
 
@@ -144,6 +109,60 @@ function TextImputReached({ title, plaseholder, keyboardType, isEraseable }) {
                 <TextInput style={styles.textImputInput} placeholder={plaseholder} keyboardType={keyboardType} />
             </View>
             {isEraseable ? <TouchableOpacity><MaterialCommunityIcons name={"close-circle"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
+        </View>
+    )
+}
+
+
+function MasterRoommate({ userName }) {
+    return (
+        <View style={styles.profileImageContainer}>
+            <View style={styles.profileMasterContainer}>
+                <Image style={styles.profileMasterImage} source={require('../../assets/Nacho.jpg')} />
+                <View style={{ position: 'absolute', height: '100%', justifyContent: 'space-between' }}>
+                    <View style={styles.medalMasterContainer}>
+                        <MaterialCommunityIcons name={"medal"} size={16} style={{ color: color.DARK_GREEN }} />
+                    </View>
+                    <TouchableOpacity>
+                        <View style={styles.laveHouseContainer}>
+                            <MaterialCommunityIcons name={"exit-to-app"} size={16} style={{ color: color.DARK_GREEN }} />
+                        </View>
+                    </TouchableOpacity>
+                </View>
+            </View>
+            <Text>{userName}</Text>
+            <Text>Dueño de la casa</Text>
+        </View>
+    )
+}
+
+function NormalRoommate({ userName }) {
+    return (
+        <View style={styles.profileImageContainer}>
+            <View style={{ position: 'relative', flexDirection: 'colum', justifyContent: 'flex-end', alignItems: 'flex-end' }}>
+                <Image style={styles.profileRoommateImage} source={require('../../assets/Lydia.jpg')} />
+                <TouchableOpacity style={{ position: 'absolute', justifyContent: 'flex-end' }}>
+                    <View style={styles.laveHouseContainer}>
+                        <MaterialCommunityIcons name={"exit-to-app"} size={16} style={{ color: color.DARK_GREEN }} />
+                    </View>
+                </TouchableOpacity>
+            </View>
+            <Text>{userName}</Text>
+            <Text>Vive en la casa</Text>
+        </View>
+    )
+}
+
+function AddNewRoommate() {
+    return (
+        <View style={styles.profileImageContainer}>
+            <TouchableOpacity>
+                <View style={styles.newRoommateImage}>
+                    <MaterialCommunityIcons name={"account-plus"} size={30} style={{ color: color.DARK_GREEN }} />
+                </View>
+            </TouchableOpacity>
+            <Text>Añadir nuevo</Text>
+            <Text>compi la casa</Text>
         </View>
     )
 }
