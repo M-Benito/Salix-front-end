@@ -30,7 +30,9 @@
     "sharp": "^0.33.1",
     "victory": "^36.8.1",
     "victory-native": "^36.8.1",
-    "@react-native-picker/picker": "2.4.10"
+    "@react-native-picker/picker": "2.4.10",
+    "react-native-maps": "1.7.1",
+    "expo-location": "~16.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.20.0"
