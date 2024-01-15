@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, View, ScrollView, TouchableOpacity, TextInput, Image, Switch } from 'react-native';
 import CardHeader from '../Components/Common/CardHeader';
 import * as color from '../../constants/colors'
@@ -78,7 +78,7 @@ export default function Settings() {
                 </View>
 
                 <View style={styles.settingsGroupContainer}>
-                    <CardHeader iconName={"home-heart"} title={"Datos de tu casa"} info={false} edit={true} state={setHDEditable}/>
+                    <CardHeader iconName={"home-heart"} title={"Datos de tu casa"} info={false} edit={true} state={setHDEditable} />
                     <View style={styles.inLine}>
                         <Text>Metros cuadrados  de la casa</Text>
                         <View style={styles.inLine}>

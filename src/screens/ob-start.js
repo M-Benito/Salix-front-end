@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
 export default function start() {
-    return(
+    return (
         <Text>Start OB Screen</Text>
     )
 }

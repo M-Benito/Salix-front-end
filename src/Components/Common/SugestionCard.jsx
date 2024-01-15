@@ -10,7 +10,7 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
                 <View style={styles.inLine}>
                     <MaterialCommunityIcons name={iconName} size={17} style={{ color: color.DARK_GREEN }} />
                     <Text style={styles.title}>{titleText}</Text>
-                    {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay}/> : null}
+                    {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay} /> : null}
                 </View>
                 {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
             </View>
@@ -24,17 +24,17 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
 }
 
 function PillStatus({ isGoodDay }) {
-    if(isGoodDay) {
+    if (isGoodDay) {
         return (
-            <View style={[styles.pillContainer, {borderColor: color.LIGHT_GREEN}]}>
-                <View style={[styles.pillDot,  {backgroundColor: color.LIGHT_GREEN}]} />
+            <View style={[styles.pillContainer, { borderColor: color.LIGHT_GREEN }]}>
+                <View style={[styles.pillDot, { backgroundColor: color.LIGHT_GREEN }]} />
                 <Text>Bueno</Text>
             </View>
         )
     } else {
         return (
-            <View style={[styles.pillContainer, {borderColor: color.RED}]}>
-                <View style={[styles.pillDot,  {backgroundColor: color.RED}]} />
+            <View style={[styles.pillContainer, { borderColor: color.RED }]}>
+                <View style={[styles.pillDot, { backgroundColor: color.RED }]} />
                 <Text>Perjudicial</Text>
             </View>
         )
