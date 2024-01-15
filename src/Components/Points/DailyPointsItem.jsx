@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import * as color from '../../../constants/colors'
 import Checkbox from 'expo-checkbox';
 
@@ -19,7 +19,7 @@ export default function DailyPointsItem({ title, body, points, isCompleted }) {
                 <Text style={styles.body}>{body}</Text>
             </View>
             <View style={{ flex: 0.1, alignItems: 'center' }}>
-                <Checkbox value={isChecked} onValueChange={isCheckedChanged} color={isChecked ? color.DARK_GREEN : undefined}/>
+                <Checkbox value={isChecked} onValueChange={isCheckedChanged} color={isChecked ? color.DARK_GREEN : undefined} />
             </View>
 
         </View>
