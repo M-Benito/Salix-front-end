@@ -17,7 +17,7 @@ const HomeStackNavigator = createStackNavigator();
 
 function HomeTabs() {
     return (
-        <Tab.Navigator initialRouteName="Home" screenOptions={{ tabBarActiveTintColor: 'purple', headerShown: false }}>
+        <Tab.Navigator initialRouteName="Home" screenOptions={{ tabBarActiveTintColor: color.LIGHT_GREEN, headerShown: false }}>
             <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="home" size={size} color={color} />), tabBarBadge: 1, }} />
             <Tab.Screen name="Points" component={Points} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="leaf" size={size} color={color} />), }} />
             <Tab.Screen name="Tips" component={Tips} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="multiplication-box" size={size} color={color} />), }} />
@@ -28,7 +28,7 @@ function HomeTabs() {
 function HomeStack() {
     return (
         <HomeStackNavigator.Navigator initialRouteName="HomeScreen">
-            <HomeStackNavigator.Screen name="HomeScreen" component={HomeTabs} options={{ headerShown: false }} />
+            <HomeStackNavigator.Screen name="HomeScreen" component={HomeTabs} options={{ title: 'Home', headerShown: false }} />
             <HomeStackNavigator.Screen name="Outdoors" component={Outdoors} options={{ title: 'Outdoors', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }} />
             <HomeStackNavigator.Screen name="Indoors" component={Indoors} options={{ title: 'Indoors', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }} />
             <HomeStackNavigator.Screen name="Settings" component={Settings} options={{ title: 'Perfil y ajustes', headerStyle: { backgroundColor: color.BACKGROUND_COLOR }, headerTintColor: color.DARK_GREEN, }} />
