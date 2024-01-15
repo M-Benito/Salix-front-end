@@ -41,10 +41,10 @@ export default function Points() {
                     </View>
 
                     <Text style={styles.sectionTitle}>Puntos diarios</Text>
-                    <DailyPointsItem title={"Ventilar la casa"} body={"Hemos detectado que hace al menos 24h que no ventilas tu hogar."} points={20} isCompleted={true}/>
-                    
+                    <DailyPointsItem title={"Ventilar la casa"} body={"Hemos detectado que hace al menos 24h que no ventilas tu hogar."} points={20} isCompleted={true} />
+
                     <Text style={styles.sectionTitle}>Puntos semanales</Text>
-                    <WeeklyPointsItem title={"Ventilar la casa todos los días"} body={"Si ventilas la casa todos los días, recibirás puntos extra por tu compromiso."} points={10} daysCompleted={[1,2,3,6]}/>
+                    <WeeklyPointsItem title={"Ventilar la casa todos los días"} body={"Si ventilas la casa todos los días, recibirás puntos extra por tu compromiso."} points={10} daysCompleted={[1, 2, 3, 6]} />
                 </View>
             </ScrollView>
         </SafeAreaView>
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         marginTop: 12,
     },
-    sectionTitle:{
+    sectionTitle: {
         color: color.DARK_GREEN,
         fontFamily: 'Oxygen-Bold',
         fontSize: 18,

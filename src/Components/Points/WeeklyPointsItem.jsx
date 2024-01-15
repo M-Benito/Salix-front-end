@@ -3,16 +3,16 @@ import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import * as color from '../../../constants/colors'
 
 export default function WeeklyPointsItem({ title, body, points, daysCompleted }) {
-    
+
     let days = [false, false, false, false, false, false, false];
     for (var i = 0; i < daysCompleted.length; i++) {
         if (daysCompleted[i] == 1) days[0] = true;
-        if (daysCompleted[i] == 2) days[1] = true
-        if (daysCompleted[i] == 3) days[2] = true
-        if (daysCompleted[i] == 4) days[3] = true
-        if (daysCompleted[i] == 5) days[4] = true
-        if (daysCompleted[i] == 6) days[5] = true
-        if (daysCompleted[i] == 7) days[6] = true
+        if (daysCompleted[i] == 2) days[1] = true;
+        if (daysCompleted[i] == 3) days[2] = true;
+        if (daysCompleted[i] == 4) days[3] = true;
+        if (daysCompleted[i] == 5) days[4] = true;
+        if (daysCompleted[i] == 6) days[5] = true;
+        if (daysCompleted[i] == 7) days[6] = true;
     }
 
     return (
