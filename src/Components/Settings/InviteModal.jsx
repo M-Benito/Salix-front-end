@@ -16,7 +16,7 @@ export default function InviteModal({ isModalOpen, setModalIsOpen }) {
                         <CardHeader iconName={"account-arrow-left"} title={"Solicitar a alguien que se una"} info={false} edit={false} />
                         <Text style={styles.title}>¿De qué trata?</Text>
                         <Text style={styles.subtitle}>Si vives con otra persona puedes solicitarle formar parte de la misma unidad habitacional.</Text>
-                        <TextImputEnriched title={"Email del usuario"} plaseholder={"ejemplo@ejemplo.com"} keyboardType={"numeric"} isEraseable={true} />
+                        <TextImputEnriched title={"Email del usuario"} plaseholder={"Introduce aquí el email..."} keyboardType={"numeric"} isEraseable={true} theme={"dark"}/>
                         <TouchableOpacity onPress={() => setModalIsOpen(!isModalOpen)} style={styles.darkButton}><Text style={styles.darkButtonText}>Enviar invitación</Text></TouchableOpacity>
                     </View>
                 </View>

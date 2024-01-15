@@ -4,12 +4,12 @@ import CardHeader from '../Components/Common/CardHeader';
 import * as color from '../../constants/colors'
 import { Picker } from '@react-native-picker/picker';
 import MapView, { Marker } from 'react-native-maps';
-import * as Location from 'expo-location';
 import AddNewRoommate from '../Components/Settings/AddNewRoommate';
 import NormalRoommate from '../Components/Settings/NormalRoommate';
 import MasterRoommate from '../Components/Settings/MasterRoommate';
 import TextImputEnriched from '../Components/Common/TextImputEnriched';
 import TextEnriched from '../Components/Common/TextEnriched';
+import NewAddressModal from '../Components/Common/NewAddressModal';
 
 export default function Settings() {
 
@@ -19,6 +19,7 @@ export default function Settings() {
     const [selectedLanguage, setSelectedLanguage] = useState();
 
     const [isinviteModalOpen, setInviteModalOPen] = useState(false);
+    const [isMapModalOpen, setMapModalOPen] = useState(false);
 
     return (
         <ScrollView style={styles.container}>
@@ -50,7 +51,8 @@ export default function Settings() {
                         <View style={{ flex: 1 }}><TextEnriched title={"Cód. postal"} plaseholder={"28012"} keyboardType={"numeric"} isEraseable={false} /></View>
                     </View>
                     <SPMap address={[40.41024043544208, -3.7008170170573025]} />
-                    <TouchableOpacity style={styles.darkButton}><Text style={styles.darkButtonText}>Cambiar dirección</Text></TouchableOpacity>
+                    <TouchableOpacity  onPress={() => setMapModalOPen(!isMapModalOpen)} style={styles.darkButton}><Text style={styles.darkButtonText}>Cambiar dirección</Text></TouchableOpacity>
+                    <NewAddressModal isModalOpen={isMapModalOpen} setModalIsOpen={setMapModalOPen}/>
                 </View>
 
                 <View style={styles.settingsGroupContainer}>
@@ -144,23 +146,6 @@ function SPMap({ address }) {
             </MapView>
         </View>
     )
-}
-
-async function getLocationPermission() {
-    let { status } = await Location.requestForegroundPermissionsAsync();
-
-    if (status !== 'granted') {
-        // nada
-        return;
-    }
-
-    let location = await Location.getCurrentPositionAsync({});
-    const current = {
-        latitude: location.coords.latitude,
-        longitude: location.coords.longitude
-    }
-
-    // Devolver current
 }
 
 const styles = StyleSheet.create({
