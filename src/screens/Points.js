@@ -1,12 +1,9 @@
-import { StyleSheet, Text, View, ScrollView, TouchableOpacity, Image } from 'react-native';
-import SugestionCard from '../Components/Common/SugestionCard';
-import CardHeader from '../Components/Common/CardHeader';
+import { StyleSheet, Text, View, ScrollView, Image } from 'react-native';
 import * as color from '../../constants/colors'
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { LinearGradient } from 'expo-linear-gradient';
 import PageHeader from '../Components/Common/PageHeader';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import ProgressBar from 'react-native-progress/Bar';
+import DailyPointsItem from '../Components/Points/DailyPointsItem';
 
 export default function Points() {
     return (
@@ -43,6 +40,7 @@ export default function Points() {
                     </View>
 
                     <Text style={styles.sectionTitle}>Puntos diarios</Text>
+                    <DailyPointsItem title={"Ventilar la casa"} body={"Hemos detectado que hace al menos 24h que no ventilas tu hogar."} points={20} isCompleted={true}/>
                     <Text style={styles.sectionTitle}>Puntos semanales</Text>
                 </View>
             </ScrollView>
