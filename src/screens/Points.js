@@ -5,8 +5,12 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ProgressBar from 'react-native-progress/Bar';
 import DailyPointsItem from '../Components/Points/DailyPointsItem';
 import WeeklyPointsItem from '../Components/Points/WeeklyPointsItem';
+import { FlatList } from 'react-native-gesture-handler';
 
 export default function Points() {
+
+    //let dailyPoints=[c]; <FlatList data={dailyPoints} keyExtractor={(dailyPoints) => dailyPoints.id} renderItem={<DailyPointsItem/>}/>
+
     return (
         <SafeAreaView style={styles.container}>
             <ScrollView>
@@ -42,6 +46,8 @@ export default function Points() {
 
                     <Text style={styles.sectionTitle}>Puntos diarios</Text>
                     <DailyPointsItem title={"Ventilar la casa"} body={"Hemos detectado que hace al menos 24h que no ventilas tu hogar."} points={20} isCompleted={true} />
+                    
+
 
                     <Text style={styles.sectionTitle}>Puntos semanales</Text>
                     <WeeklyPointsItem title={"Ventilar la casa todos los días"} body={"Si ventilas la casa todos los días, recibirás puntos extra por tu compromiso."} points={10} daysCompleted={[1, 2, 3, 6]} />

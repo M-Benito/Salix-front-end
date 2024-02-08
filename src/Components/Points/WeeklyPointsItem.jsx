@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
         backgroundColor: color.BACKGROUND_CARD_COLOR,
         borderRadius: 21,
         padding: 21,
-
+        marginTop: 21,
     },
     row: {
         flex: 1,

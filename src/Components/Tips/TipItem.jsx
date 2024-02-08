@@ -3,7 +3,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import * as color from '../../../constants/colors'
 import Checkbox from 'expo-checkbox';
 
-export default function DailyPointsItem({ title, body, points, isCompleted }) {
+export default function TipItem({ title, body, points, isCompleted }) {
 
     const [isChecked, setChecked] = useState(isCompleted);
     const isCheckedChanged = () => setChecked(previousState => !previousState);
@@ -15,13 +15,12 @@ export default function DailyPointsItem({ title, body, points, isCompleted }) {
                 <Text style={styles.pointsSubtitle}>Vilanos</Text>
             </View>
             <View style={{ flex: 0.7, marginStart: 5 }}>
-                <Text style={styles.title}>{title}</Text>
-                <Text style={styles.body}>{body}</Text>
+                <Text style={[styles.title, isChecked ? {textDecorationLine: 'line-through'} : {textDecorationLine: 'none'}]}>{title}</Text>
+                <Text style={[styles.body, isChecked ? {textDecorationLine: 'line-through'} : {textDecorationLine: 'none'}]}>{body}</Text>
             </View>
             <View style={{ flex: 0.1, alignItems: 'center' }}>
                 <Checkbox value={isChecked} onValueChange={isCheckedChanged} color={isChecked ? color.DARK_GREEN : undefined} />
             </View>
-
         </View>
     )
 }
@@ -36,6 +35,7 @@ const styles = StyleSheet.create({
         borderRadius: 21,
         padding: 21,
         marginTop: 21,
+
     },
     pointsTitle: {
         color: color.GRAY,
