@@ -8,6 +8,7 @@ export default function TipItem({ title, body, points, isCompleted }) {
     const [isChecked, setChecked] = useState(isCompleted);
     const isCheckedChanged = () => setChecked(previousState => !previousState);
 
+
     return (
         <View style={styles.container}>
             <View style={{ flex: 0.2, alignItems: 'center' }}>
@@ -15,8 +16,8 @@ export default function TipItem({ title, body, points, isCompleted }) {
                 <Text style={styles.pointsSubtitle}>Vilanos</Text>
             </View>
             <View style={{ flex: 0.7, marginStart: 5 }}>
-                <Text style={[styles.title, isChecked ? {textDecorationLine: 'line-through'} : {textDecorationLine: 'none'}]}>{title}</Text>
-                <Text style={[styles.body, isChecked ? {textDecorationLine: 'line-through'} : {textDecorationLine: 'none'}]}>{body}</Text>
+                <Text style={[styles.title, isChecked ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }]}>{title}</Text>
+                <Text style={[styles.body, isChecked ? { textDecorationLine: 'line-through' } : { textDecorationLine: 'none' }]}>{body}</Text>
             </View>
             <View style={{ flex: 0.1, alignItems: 'center' }}>
                 <Checkbox value={isChecked} onValueChange={isCheckedChanged} color={isChecked ? color.DARK_GREEN : undefined} />
