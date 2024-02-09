@@ -24,7 +24,7 @@ export default function NewAddressModal({ isModalOpen, setModalIsOpen }) {
                     <View style={{ width: 50, height: 6, backgroundColor: color.DARK_GREEN, borderRadius: 50, justifyContent: 'center' }} />
                 </View>
                 <View style={{ marginStart: 21, marginTop: 40, marginEnd: 21 }}>
-                    <TextImputEnriched title={"Buscar dirección"} plaseholder={"Buscar..."} keyboardType={"numeric"} isEraseable={true} theme={"light"} />
+                    <TextImputEnriched title={"Buscar dirección"} plaseholder={"Buscar..."} keyboardType={"text"} isEraseable={true} theme={"light"} />
                 </View>
 
                 <View style={{ marginStart: 21, marginEnd: 21, marginBottom: 60, backgroundColor: color.EXTRA_LIGHT_GREEN, borderRadius: 21 }}>

@@ -49,10 +49,10 @@ export default function Settings() {
                     <View style={{ width: '100%', alignItems: 'center' }}>
                         <Image style={styles.profileImage} source={require('../../assets/Nacho.jpg')} />
                     </View>
-                    {isUDEditable ? <TextImputEnriched title={"Nombre"} plaseholder={"Nacho"} keyboardType={"numeric"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Nombre"} plaseholder={"Nacho"} />}
-                    {isUDEditable ? <TextImputEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} keyboardType={"numeric"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} />}
-                    {isUDEditable ? <TextImputEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} keyboardType={"numeric"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} />}
-                    {isUDEditable ? <TextImputEnriched title={"Contraseña"} plaseholder={"*********"} keyboardType={"numeric"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Contraseña"} plaseholder={"*********"} />}
+                    {isUDEditable ? <TextImputEnriched title={"Nombre"} plaseholder={"Nacho"} keyboardType={"text"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Nombre"} plaseholder={"Nacho"} />}
+                    {isUDEditable ? <TextImputEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} keyboardType={"text"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} />}
+                    {isUDEditable ? <TextImputEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} keyboardType={"email"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} />}
+                    {isUDEditable ? <TextImputEnriched title={"Contraseña"} plaseholder={"*********"} keyboardType={"text"} isEraseable={true} theme={"dark"} isSensible={true}/> : <TextEnriched title={"Contraseña"} plaseholder={"*********"} />}
                     <View style={styles.settingsToggle}>
                         <Text style={styles.textImputTitle}>¿Tienes alergia al polen?</Text>
                         <Switch trackColor={{ false: '#767577', true: color.EXTRA_LIGHT_GREEN }} thumbColor={isAlergic ? color.LIGHT_GREEN : '#f4f3f4'} ios_backgroundColor="#3e3e3e" onValueChange={pollenToggleSwitch} value={isAlergic}
@@ -65,12 +65,12 @@ export default function Settings() {
                 <View style={styles.settingsGroupContainer}>
                     <CardHeader iconName={"map-marker"} title={"Dirección de tu casa"} info={false} edit={false} />
                     <View style={styles.inLine}>
-                        <View style={{ flex: 4, marginEnd: 10 }}><TextEnriched title={"Dirección"} plaseholder={"Calle de la esperanza"} keyboardType={"numeric"} isEraseable={false} /></View>
-                        <View style={{ flex: 1 }}><TextEnriched title={"Núm."} plaseholder={"1"} keyboardType={"numeric"} isEraseable={false} /></View>
+                        <View style={{ flex: 4, marginEnd: 10 }}><TextEnriched title={"Dirección"} plaseholder={"Calle de la esperanza"} /></View>
+                        <View style={{ flex: 1 }}><TextEnriched title={"Núm."} plaseholder={"1"} /></View>
                     </View>
                     <View style={styles.inLine}>
-                        <View style={{ flex: 1.5, marginEnd: 10 }}><TextEnriched title={"Ciudad"} plaseholder={"Madrid"} keyboardType={"numeric"} isEraseable={false} /></View>
-                        <View style={{ flex: 1 }}><TextEnriched title={"Cód. postal"} plaseholder={"28012"} keyboardType={"numeric"} isEraseable={false} /></View>
+                        <View style={{ flex: 1.5, marginEnd: 10 }}><TextEnriched title={"Ciudad"} plaseholder={"Madrid"} /></View>
+                        <View style={{ flex: 1 }}><TextEnriched title={"Cód. postal"} plaseholder={"28012"} /></View>
                     </View>
                     <SPMap address={[40.41024043544208, -3.7008170170573025]} />
                     <TouchableOpacity onPress={() => setMapModalOPen(!isMapModalOpen)} style={styles.darkButton}><Text style={styles.darkButtonText}>Cambiar dirección</Text></TouchableOpacity>

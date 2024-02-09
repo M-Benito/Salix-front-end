@@ -8,7 +8,7 @@ import TipItem from '../Components/Tips/TipItem';
 
 export default function Tips() {
     const tips = [
-        { "id": "1", "title": "Ventilar la casa", "body": "Hemos detectado que hace al menos 24 horas que no ventilas tu hogar", "points": 20, "isCompleted": "true" },
+        { "id": "1", "title": "Ventilar la casa", "body": "Hemos detectado que hace al menos 24 horas que no ventilas tu hogar", "points": 20, "isCompleted": "false" },
         { "id": "2", "title": "Ventilar la casa", "body": "Hemos detectado que hace al menos 24 horas que no ventilas tu hogar", "points": 20, "isCompleted": "true" },
         { "id": "3", "title": "Ventilar la casa", "body": "Hemos detectado que hace al menos 24 horas que no ventilas tu hogar", "points": 20, "isCompleted": "true" },
         { "id": "4", "title": "Ventilar la casa", "body": "Hemos detectado que hace al menos 24 horas que no ventilas tu hogar", "points": 20, "isCompleted": "true" },
