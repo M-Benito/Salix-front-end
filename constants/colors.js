@@ -15,5 +15,7 @@ export const EXTRA_LIGHT_GREEN = "#DEF3E1"
 export const EXTRA_LIGHT_BLUE = "#E6EAED"
 export const EXTRA_LIGHT_RED = "#FAE5E5" 
 
+export const TRANSPARENT = 'rgba(0, 0, 0, 0.0)'
+
 export const PRIMARY_COLOR = DARK_GREEN
 export const SECONDAY_COLOR = LIGHT_GREEN

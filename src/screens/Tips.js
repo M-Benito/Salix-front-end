@@ -18,11 +18,14 @@ export default function Tips() {
 
     return (
         <SafeAreaView style={styles.container}>
-            <View style={styles.svContainer}>
-                <PageHeader title={"Tips"} />
-                <FlatList data={tips}
-                    renderItem={({ item }) => (<TipItem title={item.title} body={item.body} points={item.points} isCompleted={item.isCompleted} />)} />
-            </View>
+            <FlatList
+                data={tips}
+                renderItem={({ item }) => (<TipItem title={item.title} body={item.body} points={item.points} isCompleted={item.isCompleted} />)} 
+                ListHeaderComponent={()=><PageHeader title={"Tips"}/>}
+                style={{paddingStart: 20, paddingEnd: 20 }}
+                contentContainerStyle={{ paddingBottom: 110 }}/>
+               
+
         </SafeAreaView>
     )
 }
@@ -31,10 +34,6 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: color.BACKGROUND_COLOR,
-    },
-    svContainer: {
-        paddingStart: 20,
-        paddingEnd: 20
     },
     sectionTitle: {
         color: color.DARK_GREEN,
