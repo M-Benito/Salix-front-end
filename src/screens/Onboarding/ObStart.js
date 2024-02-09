@@ -1,7 +1,7 @@
 import { StyleSheet, Text, View } from 'react-native';
 
-export default function home() {
+export default function ObStart() {
     return (
-        <Text>Points screen</Text>
+        <Text>Start OB Screen</Text>
     )
 }
