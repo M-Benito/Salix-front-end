@@ -1,8 +1,9 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import * as Progress from 'react-native-progress';
 import * as color from '../../../constants/colors'
 
-export default function ProfileHeader({ userLevel, completedPercentage, points }) {
+export default function ProfileHeader({ userName, userLevel, completedPercentage, points }) {
 
     const navigation = useNavigation();
 
@@ -11,11 +12,12 @@ export default function ProfileHeader({ userLevel, completedPercentage, points }
             <View style={styles.inLine}>
                 <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
                     <View style={styles.userProgress}>
+                    <Progress.Circle progress={completedPercentage * 0.01} size={50} direction={"counter-clockwise"} style={styles.progressPie} color={color.LIGHT_GREEN} />
                         <Image style={styles.profileImage} source={require('../../../assets/Nacho.jpg')} />
                     </View>
                 </TouchableOpacity>
                 <View>
-                    <Text style={styles.title}>Hola, <Text style={styles.titleBold}>Nacho!</Text> 👋</Text>
+                    <Text style={styles.title}>Hola, <Text style={styles.titleBold}>{userName}!</Text> 👋</Text>
                     <Text style={styles.subTitle}>Nivel {userLevel} completado al {completedPercentage}%</Text>
                 </View>
             </View>
@@ -42,10 +44,17 @@ const styles = StyleSheet.create({
         height: 50,
         borderRadius: 50,
         borderWidth: 3,
-        borderColor: color.LIGHT_GREEN,
+        borderColor: color.TRANSPARENT,
+        position: 'relative',
         alignItems: 'center',
         justifyContent: 'center',
         marginEnd: 14,
+    },
+    progressPie:{
+        position: 'absolute',
+    },
+    profileImage: {
+        position: 'absolute',
     },
     profileImage: {
         width: '100%',
@@ -62,7 +71,7 @@ const styles = StyleSheet.create({
         fontFamily: 'Oxygen-Bold',
     },
     subTitle: {
-        fontFamily: 'Oxygen-Regular',
+        fontFamily: 'Oxygen-Bold',
         color: color.LIGHT_GREEN,
         fontSize: 10,
     },

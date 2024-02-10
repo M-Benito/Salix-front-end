@@ -51,7 +51,7 @@ export default function Outdoors() {
                 </View >
 
                 <View style={[styles.cardsContainer, { marginBottom: 24 }]}>
-                    <CardHeader iconName={"leaf-maple"} title={"Nivel de polen"} info={true} />
+                    <CardHeader iconName={"flower-pollen"} title={"Nivel de polen"} info={true} />
                     <AqPollenPharams title={"Aliso"} max={100} min={10} actual={17.37} units={"granos/m3"} />
                     <AqPollenPharams title={"Abedul"} max={100} min={3} actual={4.19} units={"granos/m3"} />
                     <AqPollenPharams title={"Césped"} max={100} min={7} actual={18.68} units={"granos/m3"} />

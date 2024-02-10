@@ -20,9 +20,9 @@ function HomeTabs() {
 
     return (
         <Tab.Navigator initialRouteName="Home" screenOptions={{ tabBarActiveTintColor: color.LIGHT_GREEN, tabBarInactiveTintColor: 'white', headerShown: false, tabBarStyle: styles.tabBar, tabBarBackground: () => (<TabBakgroundSvg />) }}>
-            <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="home" size={size} color={color} />), tabBarBadge: 1 }} />
+            <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="home" size={size} color={color} />)}} />
             <Tab.Screen name="Puntos" component={Points} options={{ tabBarIcon: () => (<View></View>) }} />
-            <Tab.Screen name="Tips" component={Tips} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="multiplication-box" size={size} color={color} />), }} />
+            <Tab.Screen name="Tips" component={Tips} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="lightbulb-variant" size={size} color={color} />), }} />
         </Tab.Navigator>
     );
 }
