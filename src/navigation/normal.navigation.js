@@ -1,5 +1,5 @@
 import React from "react";
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Platform } from 'react-native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from "@react-navigation/native";
@@ -67,7 +67,7 @@ const styles = StyleSheet.create({
         width: "90%",
         start: 20,
         end: 20,
-        bottom: 24,
+        bottom: Platform.OS === 'ios' ? 24 : 4,
         paddingTop: 5,
         paddingBottom: 10,
         shadowColor: color.TRANSPARENT,

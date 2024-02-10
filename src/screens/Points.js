@@ -48,7 +48,7 @@ export default function Points() {
 
                     <FlatList
                         data={dailyPoints}
-                        renderItem={({ item }) => (<DailyPointsItem title={item.title} body={item.body} points={item.points} isCompleted={Boolean(item.isCompleted)} />)}
+                        renderItem={({ item }) => (<DailyPointsItem title={item.title} body={item.body} points={item.points} isCompleted={JSON.parse(item.isCompleted)} />)}
                         ListHeaderComponent={() => <Text style={styles.sectionTitle}>Puntos diarios</Text>}
                         scrollEnabled={false}
                         showsVerticalScrollIndicator={false}
@@ -57,12 +57,12 @@ export default function Points() {
 
                     <FlatList
                         data={weeklyPoints}
-                        renderItem={({ item }) => (<WeeklyPointsItem title={item.title} body={item.body} points={item.points} daysCompleted={item.daysCompleted} />)}
+                        renderItem={({ item }) => (<WeeklyPointsItem title={item.title} body={item.body} points={item.points} daysCompleted={JSON.parse(item.daysCompleted)} />)}
                         ListHeaderComponent={() => <Text style={styles.sectionTitle}>Puntos semanales</Text>}
                         scrollEnabled={false}
                         showsVerticalScrollIndicator={false}
                         keyExtractor={item => item.id}
-                        contentContainerStyle={{ paddingBottom: 130 }} />
+                        contentContainerStyle={{ paddingBottom: 90 }} />
 
                 </View>
             </ScrollView>

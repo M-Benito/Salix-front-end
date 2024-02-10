@@ -13,10 +13,10 @@ export default function Tips() {
         <SafeAreaView style={styles.container}>
             <FlatList
                 data={tips}
-                renderItem={({ item }) => (<TipItem title={item.title} body={item.body} points={item.points} isCompleted={Boolean(item.isCompleted)} />)}
+                renderItem={({ item }) => (<TipItem title={item.title} body={item.body} points={item.points} isCompleted={JSON.parse(item.isCompleted)} />)}
                 ListHeaderComponent={() => <PageHeader title={"Tips"} />}
                 style={{ paddingStart: 20, paddingEnd: 20 }}
-                contentContainerStyle={{ paddingBottom: 110 }} />
+                contentContainerStyle={{ paddingBottom: 90 }} />
         </SafeAreaView>
     )
 }
