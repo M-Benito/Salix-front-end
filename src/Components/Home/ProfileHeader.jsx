@@ -19,7 +19,7 @@ export default function ProfileHeader({ userLevel, completedPercentage, points }
                     <Text style={styles.subTitle}>Nivel {userLevel} completado al {completedPercentage}%</Text>
                 </View>
             </View>
-            <TouchableOpacity style={styles.inLine} onPress={() => navigation.navigate("Points")}>
+            <TouchableOpacity style={styles.inLine} onPress={() => navigation.navigate("Puntos")}>
                 <Image style={styles.vanilosImage} source={require('../../../assets/vanilos.png')} />
                 <Text style={styles.vanilosPoints}>{points}</Text>
             </TouchableOpacity>

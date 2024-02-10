@@ -1,4 +1,4 @@
-import { StyleSheet, Text, TouchableOpacity, View, ScrollView } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import OutdoorsPreview from '../Components/Home/OutdoorsPreview';
 import IndoorsPreview from '../Components/Home/IndoorsPreview';

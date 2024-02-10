@@ -14,10 +14,10 @@ import Points from "../screens/Points.js";
 import Tips from "../screens/Tips.js";
 import Settings from "../screens/Settings.js";
 
-const Tab = createBottomTabNavigator();
-const HomeStackNavigator = createStackNavigator();
-
 function HomeTabs() {
+
+    const Tab = createBottomTabNavigator();
+
     return (
         <Tab.Navigator initialRouteName="Home" screenOptions={{ tabBarActiveTintColor: color.LIGHT_GREEN, tabBarInactiveTintColor: 'white', headerShown: false, tabBarStyle: styles.tabBar, tabBarBackground: () => (<TabBakgroundSvg />) }}>
             <Tab.Screen name="Home" component={Home} options={{ tabBarIcon: ({ color, size }) => (<MaterialCommunityIcons name="home" size={size} color={color} />), tabBarBadge: 1 }} />
@@ -28,6 +28,9 @@ function HomeTabs() {
 }
 
 function HomeStack() {
+
+    const HomeStackNavigator = createStackNavigator();
+
     return (
         <HomeStackNavigator.Navigator initialRouteName="HomeScreen">
             <HomeStackNavigator.Screen name="HomeScreen" component={HomeTabs} options={{ title: 'Home', headerShown: false }} />
@@ -65,8 +68,8 @@ const styles = StyleSheet.create({
         start: 20,
         end: 20,
         bottom: 24,
-        paddingTop: 5, 
-        paddingBottom: 10, 
+        paddingTop: 5,
+        paddingBottom: 10,
         shadowColor: color.TRANSPARENT,
         overflow: "hidden",
         borderRadius: 10,

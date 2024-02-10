@@ -9,7 +9,9 @@ import { FlatList } from 'react-native-gesture-handler';
 
 export default function Points() {
 
-    //let dailyPoints=[c]; <FlatList data={dailyPoints} keyExtractor={(dailyPoints) => dailyPoints.id} renderItem={<DailyPointsItem/>}/>
+    const dailyPoints = require('../../assets/dailyPoints.json')
+    const weeklyPoints = require('../../assets/weeklyPoints.json')
+
 
     return (
         <SafeAreaView style={styles.container}>
@@ -44,15 +46,27 @@ export default function Points() {
                         <Text style={styles.salixForestSubtitle}>Todavía no hay ningún salix en tu bisque. Alcanza el nivel 5 para poder plantar uno.</Text>
                     </View>
 
-                    <Text style={styles.sectionTitle}>Puntos diarios</Text>
-                    <DailyPointsItem title={"Ventilar la casa"} body={"Hemos detectado que hace al menos 24h que no ventilas tu hogar."} points={20} isCompleted={true} />
-                    
+                    <FlatList
+                        data={dailyPoints}
+                        renderItem={({ item }) => (<DailyPointsItem title={item.title} body={item.body} points={item.points} isCompleted={Boolean(item.isCompleted)} />)}
+                        ListHeaderComponent={() => <Text style={styles.sectionTitle}>Puntos diarios</Text>}
+                        scrollEnabled={false}
+                        showsVerticalScrollIndicator={false}
+                        keyExtractor={item => item.id}
+                        contentContainerStyle={{ paddingBottom: 20 }} />
 
+                    <FlatList
+                        data={weeklyPoints}
+                        renderItem={({ item }) => (<WeeklyPointsItem title={item.title} body={item.body} points={item.points} daysCompleted={item.daysCompleted} />)}
+                        ListHeaderComponent={() => <Text style={styles.sectionTitle}>Puntos semanales</Text>}
+                        scrollEnabled={false}
+                        showsVerticalScrollIndicator={false}
+                        keyExtractor={item => item.id}
+                        contentContainerStyle={{ paddingBottom: 130 }} />
 
-                    <Text style={styles.sectionTitle}>Puntos semanales</Text>
-                    <WeeklyPointsItem title={"Ventilar la casa todos los días"} body={"Si ventilas la casa todos los días, recibirás puntos extra por tu compromiso."} points={10} daysCompleted={[1, 2, 3, 6]} />
                 </View>
             </ScrollView>
+
         </SafeAreaView>
     )
 }

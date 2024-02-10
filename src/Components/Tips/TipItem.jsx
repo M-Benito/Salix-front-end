@@ -4,10 +4,9 @@ import * as color from '../../../constants/colors'
 import Checkbox from 'expo-checkbox';
 
 export default function TipItem({ title, body, points, isCompleted }) {
-
+  
     const [isChecked, setChecked] = useState(isCompleted);
     const isCheckedChanged = () => setChecked(previousState => !previousState);
-
 
     return (
         <View style={styles.container}>
