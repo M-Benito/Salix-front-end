@@ -38,9 +38,6 @@ export default function Settings() {
     const [isinviteModalOpen, setInviteModalOPen] = useState(false);
     const [isMapModalOpen, setMapModalOPen] = useState(false);
 
-
-
-
     return (
         <ScrollView style={styles.container}>
             <View style={styles.svContainer}>

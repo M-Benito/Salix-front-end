@@ -1,6 +1,7 @@
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
+import Toast from 'react-native-toast-message';
 
 export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction }) {
 
@@ -16,8 +17,8 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
             </View>
             <Text style={styles.body}>{bodyText}</Text>
             <View style={styles.headerContainer}>
-                {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={() => Alert.alert(negativeAction)}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
-                {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={() => Alert.alert(positiveAction)}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
+                {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={() => Toast.show({ type: 'info', text1: negativeAction }) }><Text>{negativeBtn}</Text></TouchableOpacity> : null}
+                {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={() => Toast.show({ type: 'success', text1: positiveAction }) }><Text>{positiveBtn}</Text></TouchableOpacity> : null}
             </View>
         </View>
     )

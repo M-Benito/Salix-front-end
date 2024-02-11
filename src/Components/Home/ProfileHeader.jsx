@@ -12,7 +12,7 @@ export default function ProfileHeader({ userName, userLevel, completedPercentage
             <View style={styles.inLine}>
                 <TouchableOpacity onPress={() => navigation.navigate("Settings")}>
                     <View style={styles.userProgress}>
-                    <Progress.Circle progress={completedPercentage * 0.01} size={50} direction={"counter-clockwise"} style={styles.progressPie} color={color.LIGHT_GREEN} />
+                    <Progress.Circle progress={completedPercentage * 0.01} size={50} style={styles.progressPie} color={color.LIGHT_GREEN} />
                         <Image style={styles.profileImage} source={require('../../../assets/Nacho.jpg')} />
                     </View>
                 </TouchableOpacity>
