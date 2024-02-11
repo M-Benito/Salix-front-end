@@ -9,7 +9,7 @@ export default function TipItem({ title, body, points, isCompleted }) {
     const [isChecked, setChecked] = useState(isCompleted);
     const isCheckedChanged = () => {
         setChecked(previousState => !previousState);
-        !isChecked ? Toast.show({ type: 'success', text1: "Enhorabuena, has consegudo un nuevo hábito!" }) : null;
+        !isChecked ? Toast.show({ type: 'success', text1: "Enhorabuena, has adquirido un nuevo hábito!" }) : null;
     };
 
     return (

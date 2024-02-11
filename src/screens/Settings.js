@@ -31,8 +31,8 @@ export default function Settings() {
     const [pollenNot, setPollenNot] = useState(false);
     const pollenNotToggleSwitch = () => setPollenNot(previousState => !previousState);
 
-    // House direcction
-    const [selectedLanguage, setSelectedLanguage] = useState();
+    // House Orientation
+    const [selectedOrientation, setSelectedLanguage] = useState();
 
     // Modals visibility
     const [isinviteModalOpen, setInviteModalOPen] = useState(false);
@@ -49,7 +49,7 @@ export default function Settings() {
                     {isUDEditable ? <TextImputEnriched title={"Nombre"} plaseholder={"Nacho"} keyboardType={"text"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Nombre"} plaseholder={"Nacho"} />}
                     {isUDEditable ? <TextImputEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} keyboardType={"text"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Apellidos"} plaseholder={"Moreno Mullet"} />}
                     {isUDEditable ? <TextImputEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} keyboardType={"email"} isEraseable={true} theme={"dark"} /> : <TextEnriched title={"Email"} plaseholder={"100383694@alumnos.uc3m.es"} />}
-                    {isUDEditable ? <TextImputEnriched title={"Contraseña"} plaseholder={"*********"} keyboardType={"text"} isEraseable={true} theme={"dark"} isSensible={true}/> : <TextEnriched title={"Contraseña"} plaseholder={"*********"} />}
+                    {isUDEditable ? <TextImputEnriched title={"Contraseña"} plaseholder={"*********"} keyboardType={"text"} isEraseable={true} theme={"dark"} isSensible={true} /> : <TextEnriched title={"Contraseña"} plaseholder={"*********"} />}
                     <View style={styles.settingsToggle}>
                         <Text style={styles.textImputTitle}>¿Tienes alergia al polen?</Text>
                         <Switch trackColor={{ false: '#767577', true: color.EXTRA_LIGHT_GREEN }} thumbColor={isAlergic ? color.LIGHT_GREEN : '#f4f3f4'} ios_backgroundColor="#3e3e3e" onValueChange={pollenToggleSwitch} value={isAlergic}
@@ -77,20 +77,21 @@ export default function Settings() {
                 <View style={styles.settingsGroupContainer}>
                     <CardHeader iconName={"home-heart"} title={"Datos de tu casa"} info={false} edit={true} state={setHDEditable} />
                     <View style={styles.inLine}>
-                        <Text>Metros cuadrados  de la casa</Text>
+                        <Text>Metros cuadrados de la casa:</Text>
                         <View style={styles.inLine}>
-                            <TextInput />
+                            {isHDEditable ? <TextInput placeholder={"52"} /> : <Text>52</Text>}
                             <Text>m2</Text>
                         </View>
                     </View>
 
                     <View style={styles.inLine}>
-                        <View style={styles.inLine}>
-                            <Picker selectedValue={selectedLanguage} onValueChange={(itemValue, itemIndex) => setSelectedLanguage(itemValue)}>
-                                <Picker.Item label="Java" value="java" />
-                                <Picker.Item label="JavaScript" value="js" />
-                            </Picker>
-                        </View>
+                        <Text>Orientación de la casa:</Text>
+                        <Picker selectedValue={selectedOrientation} onValueChange={(itemValue) => setSelectedLanguage(itemValue)} style={styles.houseDirectionPicker}>
+                            <Picker.Item label="Norte" value="Norte" />
+                            <Picker.Item label="Sur" value="Sur" />
+                            <Picker.Item label="Este" value="Este" />
+                            <Picker.Item label="Oeste" value="Oeste" />
+                        </Picker>
                     </View>
                     {isHDEditable ? <TouchableOpacity onPress={() => setHDEditable(false)} style={styles.darkButton}><Text style={styles.darkButtonText}>Guardar cambios</Text></TouchableOpacity> : null}
                 </View>
@@ -245,5 +246,9 @@ const styles = StyleSheet.create({
     map: {
         width: '100%',
         height: '100%',
+    },
+    houseDirectionPicker: {
+        width: "60%",
+        textAlign: 'right',
     },
 });

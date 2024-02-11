@@ -27,7 +27,6 @@ export default function App() {
     return null;
   }
 
-
   return (
     <GestureHandlerRootView style={{ flex: 1 }} onLayout={onLayoutRootView}>
       <Navigation />
