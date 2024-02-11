@@ -2,11 +2,15 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import * as color from '../../../constants/colors'
 import Checkbox from 'expo-checkbox';
+import Toast from 'react-native-toast-message';
 
 export default function DailyPointsItem({ title, body, points, isCompleted }) {
 
     const [isChecked, setChecked] = useState(isCompleted);
-    const isCheckedChanged = () => setChecked(previousState => !previousState);
+    const isCheckedChanged = () => {
+        setChecked(previousState => !previousState);
+        !isChecked ? Toast.show({ type: 'success', text1: "Enhorabuena, has completado una de tus tareas diarias!" }) : null;
+    }
 
     return (
         <View style={styles.container}>

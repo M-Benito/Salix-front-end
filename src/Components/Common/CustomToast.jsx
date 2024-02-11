@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
         borderRadius: 15,
         padding: 20,
         marginTop: 22,
+        paddingRight: 40,
     },
     successContainer: {
         backgroundColor: color.EXTRA_LIGHT_GREEN,
