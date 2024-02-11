@@ -3,6 +3,7 @@ import { useFonts } from 'expo-font';
 import { StatusBar } from 'expo-status-bar';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import Toast from 'react-native-toast-message';
+import * as tc from './src/Components/Common/CustomToast'
 
 export default function App() {
 
@@ -16,7 +17,7 @@ export default function App() {
     <GestureHandlerRootView style={{ flex: 1 }}>
       <Navigation />
       <StatusBar style="auto" />
-      <Toast />
+      <Toast config={tc.toastConfig}/>
     </GestureHandlerRootView>
   );
 }

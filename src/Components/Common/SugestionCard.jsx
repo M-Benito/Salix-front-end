@@ -1,26 +1,41 @@
-import { Alert, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
 import Toast from 'react-native-toast-message';
 
 export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction }) {
 
+    const [visible, setVisible] = useState(true);
+    const onPressPositiveBoton = () => {
+        Toast.show({ type: 'info', text1: negativeAction });
+        setVisible(false);
+    };
+    const onPressNegativeBoton = () => {
+        Toast.show({ type: 'success', text1: positiveAction });
+        setVisible(false);
+    };
+
     return (
-        <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0 }]}>
-            <View style={styles.headerContainer}>
-                <View style={styles.inLine}>
-                    <MaterialCommunityIcons name={iconName} size={17} style={{ color: color.DARK_GREEN }} />
-                    <Text style={styles.title}>{titleText}</Text>
-                    {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay} /> : null}
+        <>
+            {visible && (
+                <View style={[styles.container, { borderWidth: hasBorder ? 2 : 0 }]}>
+                    <View style={styles.headerContainer}>
+                        <View style={styles.inLine}>
+                            <MaterialCommunityIcons name={iconName} size={17} style={{ color: color.DARK_GREEN }} />
+                            <Text style={styles.title}>{titleText}</Text>
+                            {isGoodDay != undefined ? <PillStatus isGoodDay={isGoodDay} /> : null}
+                        </View>
+                        {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
+                    </View>
+                    <Text style={styles.body}>{bodyText}</Text>
+                    <View style={styles.headerContainer}>
+                        {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={onPressPositiveBoton}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
+                        {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={onPressNegativeBoton}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
+                    </View>
                 </View>
-                {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
-            </View>
-            <Text style={styles.body}>{bodyText}</Text>
-            <View style={styles.headerContainer}>
-                {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={() => Toast.show({ type: 'info', text1: negativeAction }) }><Text>{negativeBtn}</Text></TouchableOpacity> : null}
-                {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={() => Toast.show({ type: 'success', text1: positiveAction }) }><Text>{positiveBtn}</Text></TouchableOpacity> : null}
-            </View>
-        </View>
+            )}
+        </>
     )
 }
 
