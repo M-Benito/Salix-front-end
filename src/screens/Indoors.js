@@ -10,7 +10,9 @@ export default function Indoors() {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.svContainer}>
-                <SugestionCard iconName={"weather-windy"} titleText={"Toca ventilar tu hogar"} bodyText={"Hemos detectado que jhace al menos 24 horas que no ventilas tu hogar."} hasBorder={true} positiveBtn={"Ventilar"} negativeBtn={"Recordar luego"} positiveAction={'Genial, casa ventilada!'} negativeAction={'Perfecto, te lo recordaremos luego.'} />
+                <SugestionCard iconName={"weather-windy"} titleText={"Toca ventilar tu hogar"} bodyText={"Hemos detectado que jhace al menos 24 horas que no ventilas tu hogar."} hasBorder={true} positiveBtn={"Ventilar"} negativeBtn={"Recordar luego"} positiveAction={'Genial, casa ventilada!'} negativeAction={'Perfecto, te lo recordaremos luego.'} show={true}/>
+                
+                <SugestionCard iconName={"fire"} titleText={"Enciende la calefacción"} bodyText={"Es el momento de que enciendas la calefacción, no querrás quedarte helado."} hasBorder={true} positiveBtn={"Encender"} negativeBtn={"Recordar luego"} positiveAction={'Genial, tu casa se está calentando!'} negativeAction={'Perfecto, te lo recordaremos luego.'} show={true}/>
 
                 <IndoorsPreview hasVentilated={false} hasTempSensor={false} />
 

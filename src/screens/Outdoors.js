@@ -9,7 +9,7 @@ export default function Outdoors() {
     return (
         <ScrollView style={styles.container}>
             <View style={styles.svContainer}>
-                <SugestionCard iconName={"information"} titleText={"Resumen del día:"} bodyText={"La calidad del aire es buena y los niveles de polen bajos. Un buen día para salir a la calle."} isGoodDay={true} />
+                <SugestionCard iconName={"information"} titleText={"Resumen del día:"} bodyText={"La calidad del aire es buena y los niveles de polen bajos. Un buen día para salir a la calle."} isGoodDay={true} show={true}/>
 
                 <View style={[styles.cardsContainer, { alignItems: 'center', }]}>
                     <View style={styles.inLine}>

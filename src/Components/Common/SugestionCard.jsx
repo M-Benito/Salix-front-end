@@ -4,9 +4,9 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import * as color from '../../../constants/colors'
 import Toast from 'react-native-toast-message';
 
-export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction }) {
+export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction, show }) {
 
-    const [visible, setVisible] = useState(true);
+    const [visible, setVisible] = useState(show);
     const onPressPositiveBoton = () => {
         Toast.show({ type: 'info', text1: negativeAction });
         setVisible(false);
