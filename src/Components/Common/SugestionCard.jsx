@@ -1,18 +1,25 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, View, Image } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
-import * as color from '../../../constants/colors'
+import { useNavigation } from '@react-navigation/native';
 import Toast from 'react-native-toast-message';
+import * as color from '../../../constants/colors'
 
 export default function SugestionCard({ isCloseable, iconName, hasBorder, titleText, bodyText, isGoodDay, positiveBtn, negativeBtn, positiveAction, negativeAction, show }) {
 
+    const navigation = useNavigation();
+
     const [visible, setVisible] = useState(show);
-    const onPressPositiveBoton = () => {
+    const onPressNegativeBoton = () => {
         Toast.show({ type: 'info', text1: negativeAction });
         setVisible(false);
     };
-    const onPressNegativeBoton = () => {
-        Toast.show({ type: 'success', text1: positiveAction });
+    const onPressPositiveBoton = () => {
+        if(positiveAction.includes("NAVIGATETO:")) {
+            navigation.navigate(positiveAction.substring(5));
+        } else {
+            Toast.show({ type: 'success', text1: positiveAction });
+        }
         setVisible(false);
     };
 
@@ -28,10 +35,16 @@ export default function SugestionCard({ isCloseable, iconName, hasBorder, titleT
                         </View>
                         {isCloseable ? <TouchableOpacity><MaterialCommunityIcons name={"window-close"} size={17} style={{ color: color.DARK_GREEN }} /></TouchableOpacity> : null}
                     </View>
-                    <Text style={styles.body}>{bodyText}</Text>
+                    {iconName == "account-plus" ? (
+                        <View style={styles.imageContainer}>
+                            <Image style={styles.profileImage} source={require('../../../assets/Lydia.jpg')} />
+                            <Text style={styles.imageBody}>{bodyText}</Text>
+                        </View>
+                    ) : <Text style={styles.body}>{bodyText}</Text>}
+
                     <View style={styles.headerContainer}>
-                        {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={onPressPositiveBoton}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
-                        {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={onPressNegativeBoton}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
+                        {positiveBtn ? <TouchableOpacity style={styles.negativeBtn} onPress={onPressNegativeBoton}><Text>{negativeBtn}</Text></TouchableOpacity> : null}
+                        {positiveBtn ? <TouchableOpacity style={styles.positiveBtn} onPress={onPressPositiveBoton}><Text>{positiveBtn}</Text></TouchableOpacity> : null}
                     </View>
                 </View>
             )}
@@ -59,6 +72,8 @@ function PillStatus({ isGoodDay }) {
 
 const styles = StyleSheet.create({
     container: {
+        display: 'flex',
+        flexDirection: 'column',
         backgroundColor: color.BACKGROUND_CARD_COLOR,
         borderRadius: 21,
         padding: 20,
@@ -112,6 +127,30 @@ const styles = StyleSheet.create({
         width: 9,
         height: 9,
         marginEnd: 5
+    },
+
+    imageContainer: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'center',
+        marginTop: 10,
+        paddingEnd: 64,
+    },
+
+    profileImage: {
+        width: 60,
+        height: 60,
+        borderRadius: 100,
+        borderWidth: 3,
+        borderColor: color.DARK_GREEN,
+        backgroundColor: color.EXTRA_LIGHT_GREEN,
+        marginEnd: 15,
+    },
+
+    imageBody: {
+        color: color.DARK_GREEN,
+        fontSize: 14,
+        fontFamily: 'Oxygen-Regular',
     },
 
     negativeBtn: {

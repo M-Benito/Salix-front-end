@@ -9,7 +9,7 @@ export default function DailyPointsItem({ title, body, points, isCompleted }) {
     const [isChecked, setChecked] = useState(isCompleted);
     const isCheckedChanged = () => {
         setChecked(previousState => !previousState);
-        !isChecked ? Toast.show({ type: 'success', text1: "Enhorabuena, has completado una de tus tareas diarias!" }) : null;
+        !isChecked ? Toast.show({ type: 'success', text1: "Enhorabuena, has completado el objetivo diario!" }) : null;
     }
 
     return (

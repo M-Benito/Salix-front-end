@@ -13,13 +13,21 @@ export default function Home() {
         <SafeAreaView style={styles.container}>
             <ScrollView style={styles.svContainer}>
                 <ProfileHeader userName={"Nacho"} userLevel={2} completedPercentage={75} points={120} />
+                
+                <SugestionCard iconName={"flash"} titleText={"Tienes tareas diarias sin completar"} bodyText={"Realiza las tareas diarias para para mejorar tus hábitos y conseguir vilanos 💪."} hasBorder={true} positiveBtn={"Revisar"} negativeBtn={"Recordar luego"} positiveAction={"NAVIGATETO:Indoors"} negativeAction={'Perfecto, te lo recordaremos luego.'} show={false}/>
+                
+                <SugestionCard iconName={"account-plus"} titleText={"Nueva solicitud de Lydia"} bodyText={"Lydia te ha enviado una petición para formar parte de la misma unidad habitacional. ¿Quieres aceptarla?"} hasBorder={true} positiveBtn={"Acpetar"} negativeBtn={"Rechazar"} positiveAction={"Genial, ahora Lydia y tu pertenecéis a la misma casa."} negativeAction={"Vale :(\nAvisaremos a Lydia de tu decisión."} show={false}/>
+                
                 <SugestionCard iconName={"information"} titleText={"Dato curioso del día"} bodyText={"El modo standby representa un 10,7% del consumo energético total de la vivienda. Si apagáramos completamente cada electrodoméstico, ahorraríamos unos 50 euros al año."} show={true}/>
+                
                 <TouchableOpacity onPress={() => navigation.navigate("Outdoors")}>
                     <OutdoorsPreview forecastImage={"cloud"} temperatue={"20"} aqiState={2} aqi={"84"} />
                 </TouchableOpacity>
+                
                 <TouchableOpacity onPress={() => navigation.navigate("Indoors")}>
                     <IndoorsPreview hasVentilated={false} hasTempSensor={false} />
                 </TouchableOpacity>
+                
                 <TouchableOpacity style={styles.lightPriceContainer} onPress={() => navigation.navigate("Indoors")}>
                     <Text style={styles.title}>120€/Mwh</Text>
                     <Text style={styles.subtitle}>Precio actual de la luz</Text>
