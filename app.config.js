@@ -35,18 +35,6 @@ export default {
         }
       ]
     ],
-    /*"plugins": [
-      [
-        "expo-font",
-        {
-          "fonts": [
-            "./assets/fonts/Oxygen-Bold.ttf",
-            "./assets/fonts/Oxygen-Light.ttf",
-            "./assets/fonts/Oxygen-Regular.ttf"
-          ]
-        }
-      ]
-    ],*/
     extra: {
       apiKey: process.env.API_KEY,
       authDomain: process.env.AUTH_DOMAIN,
